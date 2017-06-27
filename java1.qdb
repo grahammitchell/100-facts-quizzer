@@ -1,0 +1,702 @@
+<QUESTION>
+	$foo=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$type=$choose(int,double,char,String)
+	$phrase=$choose_same(positive or negative whole number, \
+		number that might have a decimal, single character, word or phrase)
+<DESCRIPTION>
+	<P>Declare a variable named &lt;foo&gt; of a certain type.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>The type will be explicit, specifying a type like
+		<CODE><B CLASS=k>int</B></CODE> or <CODE><B CLASS=O>String</B></CODE>.
+		<LI>The type will be implied, using a phrase like 
+		"number that might have a decimal" or "word or phrase".
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+<B CLASS=k>int</B> x;
+<B CLASS=O>String</B> s;
+<B CLASS=k>double</B> a;
+</PRE>
+
+	<P>Make sure to end your statement with a semicolon.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Declare a variable of type <CODE><B CLASS=k>$type</B></CODE>.
+	Call it <CODE>$foo</CODE>.</P>
+</VERSION>
+<ANSWER>
+	$type $foo;
+</ANSWER>
+<VERSION>
+	<P>Declare a variable named <CODE>$foo</CODE>
+	which will hold a $phrase.</P>
+</VERSION>
+<ANSWER>
+	$type $foo;
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$foo=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$FOO=$choose_same(I,J,K,X,Y,Z,A,B,C,FOO,BAR,QWERTY)
+	$ival=$irand(-100,100)
+	$dval=$rand(-100,100)
+	$dval=$round($dval,3)
+	$cval='$randchar()'
+	$sval=$choose("Mitchell","temp","","cat","dog","foo","Leander")
+	$type=$choose(int,double,char,String)
+	$val=$choose_same($ival,$dval,$cval,$sval)
+	$phrase=$choose_same(positive or negative whole number, \
+		number that might have a decimal, single character, word or phrase)
+<DESCRIPTION>
+	<P>Declare a variable named &lt;foo&gt; of a certain type, and 
+	initialize it with a given starting value of the appropriate type.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>The type will be explicit, specifying a type like
+		<CODE><B CLASS=k>int</B></CODE> or <CODE><B CLASS=O>String</B></CODE>.
+		<LI>The type will be implied, using a phrase like 
+		"number that might have a decimal" or "word or phrase".
+		<LI>The type will be explicit, and the variable must be "constant".
+		<LI>The type will be implicit, and the variable must be "constant".
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+<B CLASS=k>int</B> x = 10;
+<B CLASS=O>String</B> s = <B CLASS=s>"Hello"</B>;
+<B CLASS=k>double</B> a = 3.14;
+<B CLASS=k>final int</B> CONSTANT = 10;
+</PRE>
+
+	<P>Make sure to end your statement with a semicolon.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Declare a variable of type <CODE><B CLASS=k>$type</B></CODE>.
+	Call it <CODE>$foo</CODE> and give it an initial value of $val.</P>
+</VERSION>
+<ANSWER>
+	$type $foo = $val;
+</ANSWER>
+<VERSION>
+	<P>Declare a variable named <CODE>$foo</CODE> which will hold
+	a $phrase.  Initialize it with the value $val.</P>
+</VERSION>
+<ANSWER>
+	$type $foo = $val;
+</ANSWER>
+<VERSION>
+	<P>Declare a constant variable of type <CODE><B CLASS=k>$type</B></CODE>.
+	Call it <CODE>$FOO</CODE> and give it an initial value of $val.</P>
+</VERSION>
+<ANSWER>
+	final $type $FOO = $val;
+</ANSWER>
+<VERSION>
+	<P>Declare a variable named <CODE>$FOO</CODE> which will hold
+	a $phrase.  Initialize it with the value $val. 
+	Make it constant.</P>
+</VERSION>
+<ANSWER>
+	final $type $FOO = $val;
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$val=$irand(-20,20)
+	$rel=$choose(<,>,<=,>=,==,!=)
+	$desc=$choose_same(less than, greater than, less than or equal to, \
+		greater than or equal to, equal to, not equal to)
+	$desc2=$choose_same(under, over, at most, at least, the same as, \
+		not the same as)
+<DESCRIPTION>
+	<P>Write a boolean expression using one variable.  The question will
+	be of the form "...write an expression which is true when &lt;var&gt;
+	is &lt;relation&gt; &lt;value&gt; and false otherwise."</P>
+
+	<P>All variables will be integers.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>Phrased with the words "less than", "greater than", "less than or
+		equal to", "greater than or equal to", "equal to", or "not equal to".
+		<LI>Phrased with more obscure words that mean the same thing:
+		<TABLE CLASS=CENTERED BORDER>
+		<TR><TD>"under"           <TD>&nbsp;instead of&nbsp; <TD>"less than"
+		<TR><TD>"over"            <TD>&nbsp;instead of&nbsp; <TD>"greater than"
+		<TR><TD>"at most"         <TD>&nbsp;instead of&nbsp; <TD>"less than or equal to"
+		<TR><TD>"at least"        <TD>&nbsp;instead of&nbsp; <TD>"greater than or equal to"
+		<TR><TD>"the same as"     <TD>&nbsp;instead of&nbsp; <TD>"equal to"
+		<TR><TD>"not the same as" <TD>&nbsp;instead of&nbsp; <TD>"not equal to"
+		</TABLE>
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+( qwerty <= -18 ) <B CLASS=c>// "...true when qwerty is at most -18 and false otherwise"</B>
+( bar != 10 )     <B CLASS=c>// "...true when bar is not equal to 10 and false otherwise"</B>
+</PRE>
+
+	<P>Note that responses without the surrounding parentheses will be counted
+	wrong.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a boolean expression that is true when the variable
+	<CODE>$x</CODE> is $desc $val and false otherwise.</P>
+</VERSION>
+<ANSWER>
+	( $x $rel $val )
+</ANSWER>
+<VERSION>
+	<P>Write a boolean expression that is true when the variable
+	<CODE>$x</CODE> is $desc2 $val and false otherwise.</P>
+</VERSION>
+<ANSWER>
+	( $x $rel $val )
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(s,str,foo,bar,quux,name,fname,thingy,title)
+	$val=$choose("Mitchell","temp","cat","dog","foo","Leander","spleen", \
+		"Josh","java","Java","Sun Microsystems","coffee","donuts","doughnuts")
+	$rel=$choose(<,>,<=,>=)
+	$desc=$choose_same(less than, greater than, less than or equal to, \
+		greater than or equal to)
+<DESCRIPTION>
+	<P>Compare <CODE><B CLASS=O>String</B></CODE>s.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>Checking for equality using the <CODE>.equals()</CODE> method.
+		<LI>Checking for inequality using the <CODE>.equals()</CODE> method
+		and a logical not.
+		<LI>Checking if the <CODE><B CLASS=O>String</B></CODE> is
+		lexigraphically less than, greater than, less than or
+		equal to, or greater than or equal to some other value
+		using the <CODE>.compareTo()</CODE> method.
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+( s.equals("cat") )              <B CLASS=c>// s is equal to "cat"</B>
+( ! str.equals("dog") )          <B CLASS=c>// str is not equal to "dog"</B>
+( name.compareTo("java") &lt;  0 )  <B CLASS=c>// name is less than "java"</B>
+( name.compareTo("java") &lt;= 0 )  <B CLASS=c>// name is less than or equal to "java"</B>
+( name.compareTo("java") &gt;  0 )  <B CLASS=c>// name is greater than "java"</B>
+( name.compareTo("java") &gt;= 0 )  <B CLASS=c>// name is greater than or equal to "java"</B>
+</PRE>
+
+	<P>Note that responses without the surrounding parentheses will be counted
+	wrong.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a boolean expression that is true when the
+	<CODE><B CLASS=k>String</B></CODE> variable <CODE>$x</CODE> is
+	equal to $val and false otherwise.</P>
+</VERSION>
+<ANSWER>
+	( $x.equals($val) )
+</ANSWER>
+<VERSION>
+	<P>Write a boolean expression that is true when the
+	<CODE><B CLASS=k>String</B></CODE> variable <CODE>$x</CODE> is
+	not equal to $val and false otherwise.</P>
+</VERSION>
+<ANSWER>
+	( ! $x.equals($val) )
+</ANSWER>
+<VERSION>
+	<P>Write a boolean expression that is true when the
+	<CODE><B CLASS=k>String</B></CODE> variable <CODE>$x</CODE> is $desc $val
+	and false otherwise.</P>
+</VERSION>
+<ANSWER>
+	( $x.compareTo($val) $rel 0 )
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$y=$choose_same(j,k,i,y,z,x,b,c,a,bar,foo,asdf)
+	$val1=$irand(-20,20)
+	$val2=$irand(-20,20)
+	$rel1=$choose(<,>,<=,>=,==,!=)
+	$desc1a=$choose_same(less than, greater than, less than or equal to, \
+		greater than or equal to, equal to, not equal to)
+	$desc1b=$choose_same(under, over, at most, at least, \
+		the same as, not the same as)
+	$rel2=$choose(<,>,<=,>=,==,!=)
+	$desc2a=$choose_same(less than, greater than, less than or equal to, \
+		greater than or equal to, equal to, not equal to)
+	$desc2b=$choose_same(under, over, at most, at least, \
+		the same as, not the same as)
+	$conj=$choose(&&,||)
+	$conj_desc=$choose_same(and,or)
+<DESCRIPTION>
+	<P>Write a boolean expression using two variables and a compound
+	condition.  The question will be of the form "...write an expression
+	which is true when &lt;var1&gt; is &lt;relation1&gt; &lt;value1&gt;
+	and/or &lt;var2&gt; is &lt;relation2&gt; &lt;value2&gt;
+	and false otherwise."</P>
+
+	<P>All variables will be integers.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>Phrased with the words "less than", "greater than", "less than or
+		equal to", "greater than or equal to", "equal to", or "not equal to".
+		<LI>Phrased with more obscure words that mean the same thing:
+		<TABLE CLASS=CENTERED BORDER>
+		<TR><TD>"under"           <TD>&nbsp;instead of&nbsp; <TD>"less than"
+		<TR><TD>"over"            <TD>&nbsp;instead of&nbsp; <TD>"greater than"
+		<TR><TD>"at most"         <TD>&nbsp;instead of&nbsp; <TD>"less than or equal to"
+		<TR><TD>"at least"        <TD>&nbsp;instead of&nbsp; <TD>"greater than or equal to"
+		<TR><TD>"the same as"     <TD>&nbsp;instead of&nbsp; <TD>"equal to"
+		<TR><TD>"not the same as" <TD>&nbsp;instead of&nbsp; <TD>"not equal to"
+		</TABLE>
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+( bar <= -18 && foo != 3 )   <B CLASS=c>// "bar is at most -18 and foo is not the same as 3"</B>
+( qwerty != 10 || asdf < 6 ) <B CLASS=c>// "qwerty is not equal to 10 or asdf is less than 6"</B>
+</PRE>
+
+	<P>Note that responses without the surrounding parentheses will be counted
+	wrong.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a boolean expression that is true when the variable
+	<CODE>$x</CODE> is $desc1a $val1, $conj_desc the variable <CODE>$y</CODE> is
+	$desc2a $val2.  Otherwise, the expression should be false.</P>
+</VERSION>
+<ANSWER>
+	( $x $rel1 $val1 $conj $y $rel2 $val2 )
+</ANSWER>
+<VERSION>
+	<P>Write a boolean expression that is true when the variable
+	<CODE>$x</CODE> is $desc1b $val1, $conj_desc the variable <CODE>$y</CODE> is
+	$desc2b $val2.  Otherwise, the expression should be false.</P>
+</VERSION>
+<ANSWER>
+	( $x $rel1 $val1 $conj $y $rel2 $val2 )
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$val=$irand(-20,20)
+	$rel=$choose(<,>,<=,>=,==,!=)
+	$neg=$choose_same(>=,<=,>,<,!=,==)
+<DESCRIPTION>
+	<P>Write the negation of a given boolean expression using one variable.</P>
+
+	<P>All variables will be integers.</P>
+
+	<TABLE CLASS=CENTERED BORDER>
+	<TR><TD><CODE>&lt;</CODE> <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&gt;=</CODE>
+	<TR><TD><CODE>&lt;=</CODE><TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&gt;</CODE>
+	<TR><TD><CODE>&gt;</CODE> <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&lt;=</CODE>
+	<TR><TD><CODE>&gt;=</CODE><TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&lt;</CODE>
+	<TR><TD><CODE>==</CODE>   <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>!=</CODE>
+	<TR><TD><CODE>!=</CODE>   <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>==</CODE>
+	</TABLE>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+( qwerty <= -18 )   <B CLASS=c>// is the negation of ( qwerty > -18 )</B>
+( bar != 10 )       <B CLASS=c>// is the negation of ( bar == 10 )</B>
+</PRE>
+
+	<P>Note that responses without the surrounding parentheses will be counted
+	wrong.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a boolean expression that &nbsp;is the opposite of&nbsp; the following
+	boolean expression.</P>
+
+	<PRE>
+	( $x $rel $val )
+	</PRE>
+</VERSION>
+<ANSWER>
+	( $x $neg $val )
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(i,j,k,x,y,z,a,b,c,foo,bar,qwerty)
+	$y=$choose_same(j,k,i,y,z,x,b,c,a,bar,foo,asdf)
+	$val1=$irand(-20,20)
+	$val2=$irand(-20,20)
+	$rel1=$choose(<,>,<=,>=,==,!=)
+	$neg1=$choose_same(>=,<=,>,<,!=,==)
+	$rel2=$choose(<,>,<=,>=,==,!=)
+	$neg2=$choose_same(>=,<=,>,<,!=,==)
+	$conj=$choose(&&,||)
+	$conj_neg=$choose_same(||,&&)
+<DESCRIPTION>
+	<P>Write the negation of a given boolean expression using two
+	variables and a compound condition.</P>
+
+	<P>All variables will be integers.</P>
+
+	<TABLE CLASS=CENTERED BORDER>
+	<TR><TD><CODE>&lt;</CODE>       <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&gt;=</CODE>
+	<TR><TD><CODE>&lt;=</CODE>      <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&gt;</CODE>
+	<TR><TD><CODE>&gt;</CODE>       <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&lt;=</CODE>
+	<TR><TD><CODE>&gt;=</CODE>      <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&lt;</CODE>
+	<TR><TD><CODE>==</CODE>         <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>!=</CODE>
+	<TR><TD><CODE>!=</CODE>         <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>==</CODE>
+	<TR><TD><CODE>&amp;&amp;</CODE> <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>||</CODE>
+	<TR><TD><CODE>||</CODE>         <TD>&nbsp;is the opposite of&nbsp; <TD><CODE>&amp;&amp;</CODE>
+	</TABLE>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+( qwerty <= -18 && asdf != 3 )  <B CLASS=c>// is the negation of ( qwerty > -18 || asdf == 3 )</B>
+( bar != 10 || foo < 6 )        <B CLASS=c>// is the negation of ( bar == 10 && foo >= 6 )</B>
+</PRE>
+
+	<P>Note that responses without the surrounding parentheses will be counted
+	wrong.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a boolean expression that &nbsp;is the opposite of&nbsp; the following
+	boolean expression.</P>
+
+	<PRE>
+	( $x $rel1 $val1 $conj $y $rel2 $val2 )
+	</PRE>
+</VERSION>
+<ANSWER>
+	( $x $neg1 $val1 $conj_neg $y $neg2 $val2 )
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$x=$choose(i,j,k,x,y,z,c,n,secret,scrt,foo,bar,qwerty)
+	$rng=$choose(rng,r,rand,rando,roboto)
+	$from=$choose(a,lo,low,first,start,begin)
+	$to=$choose_same(b,hi,high,last,stop,end)
+	$a=$choose(1,5,10,20,50,100)
+	$b=$choose_same(10,15,20,40,150,500)
+	$factor=$choose(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,3,4)
+	$a=$calc($a*$factor)
+	$b=$calc($b*$factor)
+	$n=$calc($b-$a)
+	$n=$calc($n+1)
+<DESCRIPTION>
+	<P>Generate a random number in a given range.
+	The question will be of the form "...write a statement that sets
+	the variable &lt;var&gt; to a random number from &lt;value&gt;
+	to &lt;value&gt;."</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>The range is from 1 to a given number.
+		<LI>The range is from one number to another number.
+		<LI>The range is from 1 to a variable.
+		<LI>The range is from one variable to another variable.
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+x = 1 + rng.nextInt(10);       <B CLASS=c>// from 1 to 10</B>
+y = 10 + rand.nextInt(11);     <B CLASS=c>// from 10 to 20</B>
+z = 1 + r.nextInt(n);          <B CLASS=c>// from 1 to n</B>
+q = a + rando.nextInt(b-a+1);  <B CLASS=c>// from a to b</B>
+</PRE>
+
+	<P>Make sure to end your statement with a semicolon.</P>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a statement that sets the variable <CODE>$x</CODE> (which has
+	already been declared) to a random number from 1 to $b.</P>
+
+	<PRE>
+	Random $rng = new Random();
+	int $x;
+	</PRE>
+</VERSION>
+<ANSWER>
+	$x = 1 + $rng.nextInt($b);
+</ANSWER>
+<VERSION>
+	<P>Write a statement that sets the variable <CODE>$x</CODE> (which has
+	already been declared) to a random number from $a to $b.</P>
+
+	<PRE>
+	Random $rng = new Random();
+	int $x;
+	</PRE>
+</VERSION>
+<ANSWER>
+	$x = $a + $rng.nextInt($n);
+</ANSWER>
+<VERSION>
+	<P>Write a statement that sets the variable <CODE>$x</CODE> (which has
+	already been declared) to a random number between 1 and <CODE>$to</CODE>
+	(inclusive).</P>
+
+	<PRE>
+	Random $rng = new Random();
+	int $to = console.nextInt();
+	int $x;
+	</PRE>
+</VERSION>
+<ANSWER>
+	$x = 1 + $rng.nextInt($to);
+</ANSWER>
+<VERSION>
+	<P>Write a statement that sets the variable <CODE>$x</CODE> (which has
+	already been declared) to a random number between <CODE>$from</CODE>
+	and <CODE>$to</CODE> (inclusive).</P>
+
+	<PRE>
+	Random $rng = new Random();
+	int $from = console.nextInt();
+	int $to = console.nextInt();
+	int $x;
+	</PRE>
+</VERSION>
+<ANSWER>
+	$x = $from + $rng.nextInt($to-$from+1);
+</ANSWER>
+</QUESTION>
+
+<QUESTION>
+	$lcv=$choose(i,j,k,x,y,z)
+	$from=$choose(a,lo,low,first,start,begin)
+	$to=$choose_same(b,hi,high,last,stop,end)
+	$by=$choose(by,amt,c,n,step)
+	$val1=$irand(0,20)
+	$count=$irand(10,50)
+	$val2=$calc($val1+$count)
+	$val3=$irand(1,5)
+<DESCRIPTION>
+	<P>Write a <CODE CLASS=k>for</CODE> loop which makes a given variable
+	take on all the values from &lt;value&gt; to &lt;value&gt;.</P>
+
+	<P>Variants:</P>
+	<OL>
+		<LI>The loop control variable is already declared.
+		<LI>The loop control variable has not already been declared.
+		<LI>All values are actual numbers, and you count by 1s.
+		<LI>All values are actual numbers, and you count by a number.
+		<LI>All values are variables, and you count by 1s.
+		<LI>All values are variables, and you count by the amount of
+			another variable.
+	</OL>
+
+	<P>Examples:</P>
+
+<PRE CLASS=CODE>
+<B CLASS=k>for</B> ( i=0; i&lt;=10; i++ ) 	<B CLASS=c>// 0 to 10 by 1s, i predeclared</B>
+<B CLASS=k>for</B> ( int k=5; k&lt;=20; k+=3 ) 	<B CLASS=c>// 5 to 20 by 3s, k undeclared</B>
+<B CLASS=k>for</B> ( x=a; x&lt;=b; x+=c ) 	<B CLASS=c>// a to b by c, x predeclared</B>
+</PRE>
+</DESCRIPTION>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from $val1 
+	to $val2.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$val1; $lcv<=$val2; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from $val1 
+	to $val2.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$val1; $lcv<=$val2; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from $val1 
+	to $val2, counting by $val3.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$val1; $lcv<=$val2; $lcv+=$val3 )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from $val1 
+	to $val2, counting by $val3.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$val1; $lcv<=$val2; $lcv+=$val3 )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from $val1
+	to the variable <em>$to</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$val1; $lcv<=$to; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from $val1
+	to the variable <em>$to</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$val1; $lcv<=$to; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	int $from = $val1;
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$from; $lcv<=$to; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $from = $val1;
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$from; $lcv<=$to; $lcv++ )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>,
+	counting by $val3.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	int $from = $val1;
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$from; $lcv<=$to; $lcv+=$val3 )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>,
+	counting by $val3.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $from = $val1;
+	int $to = $val2;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$from; $lcv<=$to; $lcv+=$val3 )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has already been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>,
+	counting by the value of the variable <em>$by</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $lcv;
+	int $from = $val1;
+	int $to = $val2;
+	int $by = $val3;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( $lcv=$from; $lcv<=$to; $lcv+=$by )
+</ANSWER>
+<VERSION>
+	<P>Write a <b>for</b> loop which makes the variable <em>$lcv</em>
+	(which has not been declared) take on all the values from
+	the variable <em>$from</em> to the variable <em>$to</em>,
+	counting by the value of the variable <em>$by</em>.</P>
+
+	<P>Just write the first line of the <b>for</b> loop, don't attempt
+	to write a body.</P>
+
+	<PRE>
+	int $from = $val1;
+	int $to = $val2;
+	int $by = $val3;
+	</PRE>
+</VERSION>
+<ANSWER>
+	for ( int $lcv=$from; $lcv<=$to; $lcv+=$by )
+</ANSWER>
+</QUESTION>
